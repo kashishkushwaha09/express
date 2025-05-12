@@ -5,12 +5,12 @@ server.use((req,res,next)=>{
     console.log("authentication middleware is called")
     next();
 })
-server.use('/library2',(req,res,next)=>{
-     console.log("library 2 is recommended")
+server.use('/welcome',(req,res,next)=>{
+    req.user='Guest'
      next();
 })
-server.get('/',(req,res)=>{
-    res.send('<h1>Hello World!</h1>')
+server.get('/welcome',(req,res)=>{
+    res.send(`<h1>Welcome, ${req.user}!</h1>`)
 })
 server.get('/library2',(req,res)=>{
      res.send('<h1>library 2 is opened!</h1>')
