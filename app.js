@@ -5,6 +5,7 @@ const userRouter=require('./routes/users.js');
 const orderRouter=require('./routes/orders.js');
 const productRouter=require('./routes/products.js');
 const categoryRouter=require('./routes/categories.js');
+const bookRouter=require('./routes/books.js');
 const port=3000;
 server.use((req,res,next)=>{
     console.log("authentication middleware is called")
@@ -21,6 +22,7 @@ server.use('/users',userRouter);
 server.use('/orders',orderRouter);
 server.use('/products',productRouter);
 server.use('/categories',categoryRouter);
+server.use('/books',bookRouter);
 //Question-Routes
 
 
