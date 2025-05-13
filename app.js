@@ -5,11 +5,11 @@ server.use((req,res,next)=>{
     console.log("authentication middleware is called")
     next();
 })
-server.use('/welcome',(req,res,next)=>{
-    req.user='Guest'
-     next();
-},(req,res)=>{
-    res.send(`<h1>Welcome, ${req.user}!</h1>`)
+//dynamic route
+server.get('/welcome/:username',(req,res,next)=>{
+const {username}=req.params;
+const {role}=req.query;
+res.send(`<h1>Welcome ${username}! your role is ${role}</h1>`)
 })
 server.get('/library2',(req,res)=>{
      res.send('<h1>library 2 is opened!</h1>')
