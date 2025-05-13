@@ -5,6 +5,11 @@ server.use((req,res,next)=>{
     console.log("authentication middleware is called")
     next();
 })
+// logging middleware 
+server.use((req,res,next)=>{
+    console.log(`${req.method} request made to ${req.url}`)
+    next();
+})
 //dynamic route
 server.get('/welcome/:username',(req,res,next)=>{
 const {username}=req.params;
